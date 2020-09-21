@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "utf-8">
+        <title>Mattie's Aframe Work</title>
+        <meta name = "description" content = "my trial">
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene background = "color:black">
+            <a-assets>
+                <img id = "floor" src= "floor.png">
+            </a-assets>
+            <a-plane name = floor;
+                     src = "#floor"
+                     position = "0 0 -10" 
+                     rotation = "-90 0 0"
+                     width = "20"
+                     height = "20"
+                     side = double>
+            </a-plane>
+            <a-plane name = top
+                     color = "#FFFFFF"
+                     position = "0 8 -10" 
+                     rotation = "-90 0 0"
+                     width = "20"
+                     height = "20"
+                     side = "double"
+                     animation = "property: color; to: #000000; dur: 10000; loop: true; dir: alternate"
+                     shadow>
+            </a-plane>
+            <a-plane name = wall
+                     color = "#FFFFFF"
+                     position = "10 4 -10" 
+                     rotation = "0 90 0"
+                     width = "20"
+                     height = "8"
+                     side = "double"
+                     animation = "property: color; to: #000000; dur: 10000; loop: true; dir: alternate"
+                     shadow>
+            </a-plane>
+            <a-plane name = wall
+                     color = "#FFFFFF"
+                     position = "-10 4 -10" 
+                     rotation = "0 90 0"
+                     width = "20"
+                     height = "8"
+                     side = "double"
+                     animation = "property: color; to: #000000; dur: 10000; loop: true; dir: alternate"
+                     shadow>
+            </a-plane>
+            <a-plane name = wall
+                     color = "#FFFFFF"
+                     position = "0 4 -15" 
+                     rotation = "0 0 0"
+                     width = "20"
+                     height = "8"
+                     side = "double"
+                     animation = "property: color; to: #000000; dur: 10000; loop: true; dir: alternate"
+                     shadow>
+            </a-plane>
+            <a-plane name = wallback
+                     color = "#FFFFFF"
+                     position = "0 4 0" 
+                     rotation = "0 0 0"
+                     width = "20"
+                     height = "8"
+                     side = "double"
+                     animation = "property: color; to: #000000; dur: 10000; loop: true; dir: alternate"
+                     shadow>
+            </a-plane>
+            <!-- 1 -->
+            <a-plane name = yellow
+                     color = #f6f800
+                     position = "0.75 2 -12"
+                     rotation = ""
+                     height = "4"
+                     width = "3"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5"
+                     animation__2 = "property: position; from: 0.75 2 -12; to: 3 2 -12; dur: 4000; delay: 2000; dir: alternate; loop: true">
+            </a-plane>
+            <a-plane name = pink
+                     color = #f300f8
+                     position = "4 2 -8"
+                     rotation = "0 90 0"
+                     height = "5"
+                     width = "7"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5"
+                     animation__2 = "property: position; from: 4 2 -8; to: 5 2 -8; dur: 6000; delay: 2000; dir: alternate; loop: true">
+            </a-plane>
+            <a-plane name = blue
+                     color = #05f6f7
+                     position = "5 2 -7"
+                     rotation = "0 0 0"
+                     height = "4"
+                     width = "7.5"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5"
+                     animation__2 = "property: position; from: 5 2 -7; to: 5 2 -9; dur: 8000; delay: 2000; dir: alternate; loop: true">
+            </a-plane>
+            <!-- 2 -->
+            <a-plane name = yellow2
+                     color = #f6f800
+                     position = "-3 2 -7"
+                     rotation = ""
+                     height = "4"
+                     width = "5"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5"
+                     animation__2 = "property: position; from: -3 2 -7; to: -3 2 -5; dur: 3500;
+                     dir: alternate; loop: true">
+            </a-plane>
+            <a-plane name = blue2
+                     color = #05f6f7
+                     position = "-1.5 2 -8"
+                     rotation = "0 90 0"
+                     height = "5"
+                     width = "7"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5"
+                     animation = "property: position; from: -1.5 2 -8; to: -1.5 6 -8; dur: 12000; dir: alternate; loop: true">
+            </a-plane>
+            <a-plane name = pinkdirleft
+                     color = #f300f8
+                     position = "-5 2 -2"
+                     rotation = "0 90 0"
+                     height = "5"
+                     width = "4"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5"
+                     animation = "property: position; from: -5 2 -2; to: -9 2 -2; dur: 12000; dir: alternate; loop: true">
+            </a-plane>
+            <a-plane name = pinkback
+                     color = #f300f8
+                     position = "-5 2 -10"
+                     rotation = "0 0 0"
+                     height = "4"
+                     width = "6"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5"
+                     animation = "property: position; from: -5 2 -10; to: -5 2 -13; dur: 12000; dir: alternate; loop: true">
+            </a-plane>
+            <!-- 3 -->
+            <a-plane name = yellowright
+                     color = #f6f800
+                     position = "7.5 2 -5"
+                     rotation = "0 90 0"
+                     height = "4"
+                     width = "6"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5"
+                     animation__2 = "property: position; from: 7.5 2 -5; to: 7.5 6 -5; dur: 2500; delay: 2000; dir: alternate; loop: true">
+            </a-plane>
+            <a-plane name = pink3
+                     color = #f300f8
+                     position = "6 2 -10"
+                     rotation = "0 0 0"
+                     height = "4"
+                     width = "6"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5">
+            </a-plane>
+            <!-- 4 -->
+            <a-plane name = changer
+                     color = #f300f8
+                     position = "2 2 -12"
+                     rotation = "0 90 0"
+                     height = "3"
+                     width = "5"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5"
+                     animation = "property: position; from: 2 2 -12; to: 2 5 -12; dur: 2500; dir: alternate; loop: true">
+            </a-plane>
+            <!-- 4 -->
+            <a-plane name = yellowleftleft
+                     color = #f6f800
+                     position = "-7.5 2 -2"
+                     rotation = "0 0 0"
+                     height = "5"
+                     width = "4.5"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5"
+                     animation__2 = "property: position; from: -7.5 2 -2; to: -7.5 6 -2; dur: 6000; delay: 2000; dir: alternate; loop: true">
+            </a-plane>
+            <a-plane name = pinkright
+                     color = #f300f8
+                     position = "5 2 -7"
+                     rotation = "0 0 0"
+                     height = "4"
+                     width = "4"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5"
+                     animation__2 = "property: position; from: 5 2 -3; to: 6.5 2 -3; dur: 4000; dir: alternate; loop: true">
+            </a-plane>
+            <a-plane name = yellowback
+                     color = #f6f800
+                     position = "-6 2 -12"
+                     rotation = "0 90 0"
+                     height = "5"
+                     width = "4"
+                     side = "double"
+                     transparent = "true"
+                     opacity = "0.5"
+                     animation = "property: position; from: -6 2 -12; to: -6 6 -12; dur: 7000; delay: 1000; dir: alternate; loop: true">
+            </a-plane>
+        </a-scene>
+    </body>
+</html>
+
