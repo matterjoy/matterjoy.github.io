@@ -34,7 +34,7 @@ function printMovies () {
 //print out to console, only the movies that has a rating higher than rating(argument)
 //print out the total number of matches
 function highRatings (rating) {
-    console.log("printing movie that has a higher rating of " + rating + "\n");
+    console.log("printing movie that have a higher rating of than " + rating + "\n");
     var total = 0;
     for (i = 0; i < allMovies.length; i++) {
         if (allMovies[i].rating > rating) {
