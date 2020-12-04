@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Forest Stage</title>
+    <script type="text/javascript" src="phaser.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <script type="text/javascript">
+        var config = {
+            type: Phaser.AUTO,
+            width: 900,
+            height: 800,
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    debug: false
+                }
+            },
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            }
+        };
+
+        var game = new Phaser.Game(config); //initialization of the new game using config settings
+
+        //all images designed by Singer & Madison preloaded
+        function preload() {
+            this.load.image('forest', 'forest.jpg');
+            this.load.image('maze', 'maze.png');
+            this.load.image('fire', 'fire.png');
+            this.load.image('leaf', 'leaf.png');
+            this.load.image('koala', 'koala.png');
+            this.load.image('border', 'border.png');
+            this.load.image('side', 'side.png');
+            this.load.image('win', 'win.png');
+        }
+
+        /*the forest background was implemented as well as several sprites like the koala, fire, borders and leaves that added functionality to the game*/
+        //keys represented the movement of the koala
+        function create() {
+            this.add.image(450, 400, 'forest').setScale(0.25);
+            borderTop = this.physics.add.sprite(452, 30, 'border').setScale(0.51);
+            borderBottom = this.physics.add.sprite(452, 770, 'border').setScale(0.51);
+            borderLeft = this.physics.add.sprite(25, 400, 'side').setScale(0.51);
+            borderRight = this.physics.add.sprite(875, 400, 'side').setScale(0.51);
+            fire = this.physics.add.sprite(72, 80, 'fire').setScale(0.06);
+            fire2 = this.physics.add.sprite(72, 720, 'fire').setScale(0.06);
+            fire3 = this.physics.add.sprite(72, 280, 'fire').setScale(0.06);
+            fire4 = this.physics.add.sprite(72, 520, 'fire').setScale(0.06);
+            fire5 = this.physics.add.sprite(100, 80, 'fire').setScale(0.06);
+            fire6 = this.physics.add.sprite(312, 80, 'fire').setScale(0.06);
+            fire7 = this.physics.add.sprite(572, 80, 'fire').setScale(0.06);
+            fire8 = this.physics.add.sprite(772, 80, 'fire').setScale(0.06);
+            leaf = this.physics.add.sprite(100, 357, 'leaf').setScale(0.06);
+            leaf2 = this.physics.add.sprite(180, 600, 'leaf').setScale(0.06);
+            leaf3 = this.physics.add.sprite(700, 700, 'leaf').setScale(0.06);
+            leaf4 = this.physics.add.sprite(720, 500, 'leaf').setScale(0.06);
+            leaf5 = this.physics.add.sprite(400, 650, 'leaf').setScale(0.06);
+            leaf6 = this.physics.add.sprite(600, 100, 'leaf').setScale(0.06);
+            leaf7 = this.physics.add.sprite(120, 100, 'leaf').setScale(0.06);
+            leaf8 = this.physics.add.sprite(760, 200, 'leaf').setScale(0.06);
+            koala = this.physics.add.sprite(450, 400, 'koala').setScale(0.05);
+            keys = this.input.keyboard.createCursorKeys();
+        }
+        //speed of the koala
+        var movement = {
+            velocity: 2
+        };
+        /*forward initially set to true as goes forwards in path and gets set to false as it returns back from the path*/
+        var forward = true;
+        var forward2 = true;
+        var forward3 = true;
+        var forward4 = true;
+        var forward5 = true;
+        var forward6 = true;
+        var forward7 = true;
+        var forward8 = true;
+        var gameover = false;
+        var count = 0; //counter to determine how many leaves have been collected
+
+        function update() {
+            if (keys.left.isDown) {
+                koala.x -= movement.velocity;
+            }
+            if (keys.right.isDown) {
+                koala.x += movement.velocity;
+            }
+            if (keys.up.isDown) {
+                koala.y -= movement.velocity;
+            }
+            if (keys.down.isDown) {
+                koala.y += movement.velocity;
+            }
+
+            if (count == 8) { //there are 8 leaves to collect to win the game
+                gameover = true;
+            }
+
+            if (gameover) {
+                win = this.physics.add.sprite(450, 400, 'win'); //You Win screen!
+                return;
+            }
+            /*these if/else statements represent movement of each path of fire and sets the
+            amount of speed that these fireballs have*/
+            if (forward) {
+                fire.x += 4;
+                if (fire.x >= 790) {
+                    forward = false;
+                }
+            } else {
+                fire.x -= 4;
+                if (fire.x <= 70) {
+                    forward = true;
+                }
+            }
+
+            if (forward2) {
+                fire2.x += 3;
+                if (fire2.x >= 790) {
+                    forward2 = false;
+                }
+            } else {
+                fire2.x -= 3;
+                if (fire2.x <= 70) {
+                    forward2 = true;
+                }
+            }
+
+            if (forward3) {
+                fire3.x += 6;
+                if (fire3.x >= 790) {
+                    forward3 = false;
+                }
+            } else {
+                fire3.x -= 6;
+                if (fire3.x <= 70) {
+                    forward3 = true;
+                }
+            }
+
+            if (forward4) {
+                fire4.x += 5;
+                if (fire4.x >= 790) {
+                    forward4 = false;
+                }
+            } else {
+                fire4.x -= 5;
+                if (fire4.x <= 70) {
+                    forward4 = true;
+                }
+            }
+
+            if (forward5) {
+                fire5.y += 5;
+                if (fire5.y >= 710) {
+                    forward5 = false;
+                }
+            } else {
+                fire5.y -= 5;
+                if (fire5.y <= 90) {
+                    forward5 = true;
+                }
+            }
+
+            if (forward6) {
+                fire6.y += 6;
+                if (fire6.y >= 710) {
+                    forward6 = false;
+                }
+            } else {
+                fire6.y -= 7;
+                if (fire6.y <= 90) {
+                    forward6 = true;
+                }
+            }
+
+            if (forward7) {
+                fire7.y += 7;
+                if (fire7.y >= 710) {
+                    forward7 = false;
+                }
+            } else {
+                fire7.y -= 8;
+                if (fire7.y <= 90) {
+                    forward7 = true;
+                }
+            }
+
+            if (forward8) {
+                fire8.y += 5;
+                if (fire8.y >= 710) {
+                    forward8 = false;
+                }
+            } else {
+                fire8.y -= 6;
+                if (fire8.y <= 90) {
+                    forward8 = true;
+                }
+            }
+
+            /*handleOverlap deals with sending the koala back to the center of the screen if
+            it came into contact with the fire or the boundaries*/
+            /*collectFood causes the leaves to disappear from the screen and increases the total
+            count of leaves collected until the koala collected all the leaves to win*/
+
+            if (this.physics.add.overlap(koala, fire, handleOverlap, null, this)) {}
+            if (this.physics.add.overlap(koala, fire2, handleOverlap, null, this)) {}
+            if (this.physics.add.overlap(koala, fire3, handleOverlap, null, this)) {}
+            if (this.physics.add.overlap(koala, fire4, handleOverlap, null, this)) {}
+            if (this.physics.add.overlap(koala, fire5, handleOverlap, null, this)) {}
+            if (this.physics.add.overlap(koala, fire6, handleOverlap, null, this)) {}
+            if (this.physics.add.overlap(koala, fire7, handleOverlap, null, this)) {}
+            if (this.physics.add.overlap(koala, fire8, handleOverlap, null, this)) {}
+
+            if (this.physics.add.overlap(koala, leaf, collectFood, null, this)) {}
+            if (this.physics.add.overlap(koala, leaf2, collectFood, null, this)) {}
+            if (this.physics.add.overlap(koala, leaf3, collectFood, null, this)) {}
+            if (this.physics.add.overlap(koala, leaf4, collectFood, null, this)) {}
+            if (this.physics.add.overlap(koala, leaf5, collectFood, null, this)) {}
+            if (this.physics.add.overlap(koala, leaf6, collectFood, null, this)) {}
+            if (this.physics.add.overlap(koala, leaf7, collectFood, null, this)) {}
+            if (this.physics.add.overlap(koala, leaf8, collectFood, null, this)) {}
+
+            if (this.physics.add.overlap(koala, borderTop, handleOverlap, null, this)) {}
+            if (this.physics.add.overlap(koala, borderBottom, handleOverlap, null, this)) {}
+            if (this.physics.add.overlap(koala, borderLeft, handleOverlap, null, this)) {}
+            if (this.physics.add.overlap(koala, borderRight, handleOverlap, null, this)) {}
+        }
+
+        function collectFood(koala, leaf) {
+            leaf.disableBody(true, true); //leaf disappears upon contact of koala
+            count++; //count of leaves collected goes up by 1
+        }
+
+        function collectFood(koala, leaf2) {
+            leaf2.disableBody(true, true);
+            count++;
+        }
+
+        function collectFood(koala, leaf3) {
+            leaf3.disableBody(true, true);
+            count++;
+        }
+
+        function collectFood(koala, leaf4) {
+            leaf4.disableBody(true, true);
+            count++;
+        }
+
+        function collectFood(koala, leaf5) {
+            leaf5.disableBody(true, true);
+            count++;
+        }
+
+        function collectFood(koala, leaf6) {
+            leaf6.disableBody(true, true);
+            count++;
+        }
+
+        function collectFood(koala, leaf7) {
+            leaf7.disableBody(true, true);
+            count++;
+        }
+
+        function collectFood(koala, leaf8) {
+            leaf8.disableBody(true, true);
+            count++;
+        }
+
+        //koala gets sent back to the center of the screen
+
+        function handleOverlap(koala, fire) {
+            koala.x = 450;
+            koala.y = 400;
+        }
+
+        function handleOverlap(koala, fire2) {
+            koala.x = 450;
+            koala.y = 400;
+        }
+
+        function handleOverlap(koala, fire3) {
+            koala.x = 450;
+            koala.y = 400;
+        }
+
+        function handleOverlap(koala, fire4) {
+            koala.x = 450;
+            koala.y = 400;
+        }
+
+        function handleOverlap(koala, fire5) {
+            koala.x = 450;
+            koala.y = 400;
+        }
+
+        function handleOverlap(koala, fire6) {
+            koala.x = 450;
+            koala.y = 400;
+        }
+
+        function handleOverlap(koala, fire7) {
+            koala.x = 450;
+            koala.y = 400;
+        }
+
+        function handleOverlap(koala, fire8) {
+            koala.x = 450;
+            koala.y = 400;
+        }
+
+        function handleOverlap(koala, borderTop) {
+            koala.x = 450;
+            koala.y = 400;
+        }
+
+        function handleOverlap(koala, borderBottom) {
+            koala.x = 450;
+            koala.y = 400;
+        }
+
+        function handleOverlap(koala, borderLeft) {
+            koala.x = 450;
+            koala.y = 400;
+        }
+
+        function handleOverlap(koala, borderRight) {
+            koala.x = 450;
+            koala.y = 400;
+        }
+
+    </script>
+    <div class ="middle">
+        <a href="../index.html" class="button button1">Return to Home</a>
+        <a href="koala.html" class="button button2">Restart Game</a>
+    </div>
+</body>
+    
+</html>
