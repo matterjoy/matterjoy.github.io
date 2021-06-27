@@ -1,5 +1,5 @@
 html {
-    background: #272a2b;
+    background: #181818;
     box-sizing: border-box;
 }
 
@@ -13,12 +13,12 @@ head {
 }
 
 p {
-    color: #f7faff;
+    color: #fefefe;
     font-family: Futura, Arial, sans-serif;
 }
 
 h1 {
-    color: #f7faff;
+    color: #fefefe;
     font-family: Futura, Arial, sans-serif;
     text-align: center;
     font-size: 30px;
@@ -28,27 +28,27 @@ h1 {
 }
 
 header {
-    color:#f7faff;
+    color:#fefefe;
     text-align: center;
     font-family: Futura, Arial, sans-serif;
     font-size: 25px;
 }
 
 a {
-    color: #f7faff;
+    color: #fefefe;
     text-decoration: none;
 }
 
 a:visited {
-    color: #ffccdc;
+    color: #3288fd;
 }
 
 a:hover {
-    color: #ff577d;
+    color: #3288fd;
 }
 
 a:active {
-    color: #ff184c;
+    color: #3288fd;
 }
 
 footer {
@@ -58,17 +58,17 @@ footer {
 
 .intro {
     font-size: 40px;
-    color: #f7faff;
+    color: #fefefe;
     font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;
     margin: 25px;
     padding: 25px;
-    border-color: #ffccdc;
+    border-color: #3288fd;
     border-style: solid;
     margin-top: 10px;
 }
 
 label {
-    color: #f7faff;
+    color: #fefefe;
 }
 
 img {
